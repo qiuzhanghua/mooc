@@ -87,3 +87,18 @@ let hfm n =
   hfm' 1 arr;
   (* Array.iter (fun (f, m) -> Printf.printf "%d %d\n" f m) arr; *)
   arr.(n)
+
+let sum3 n =
+  let rec sum3_tr n acc =
+    if n < 1 then acc else sum3_tr (n - 1) ((3 * acc) + 1)
+  in
+  sum3_tr n 1
+
+let tribonacci n a b c =
+  let rec triple n acc =
+    let a, b, c = acc in
+    (* Printf.printf "%d %d %d %d\n" n a b c; *)
+    if n < 2 then acc else triple (n - 1) (b, c, a + b + c)
+  in
+  let x, _, _ = triple n (a, b, c) in
+  x

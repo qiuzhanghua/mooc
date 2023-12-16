@@ -27,6 +27,10 @@ let tests =
             assert_equal 7 (Math.hhq 1 4 12)); *)
          ( "hfm" >:: fun _ ->
            assert_equal (5, 4) (Math.hfm 7) ~printer:string_of_pair );
+         ( "sum3" >:: fun _ ->
+           assert_equal 40 (Math.sum3 3) ~printer:string_of_int );
+         ( "tribonacci" >:: fun _ ->
+           assert_equal 17 (Math.tribonacci 7 1 1 1) ~printer:string_of_int );
        ]
 
 let _ = run_test_tt_main tests
