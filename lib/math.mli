@@ -18,3 +18,5 @@ val digits : int -> int -> int * int * int
 val hfm : int -> int * int
 val sum3 : int -> int
 val tribonacci : int -> int -> int -> int -> int
+
+val fast_exp : int -> int -> int

@@ -102,3 +102,13 @@ let tribonacci n a b c =
   in
   let x, _, _ = triple n (a, b, c) in
   x
+
+let fast_exp x n =
+  let rec fast_exp_tr x n acc =
+    (* Printf.printf "%d %d %d\n" x n acc; *)
+    if n < 1 then 1
+    else if n == 1 then acc * x
+    else if n mod 2 = 0 then fast_exp_tr (x * x) (n / 2) acc
+    else fast_exp_tr x (n - 1) (acc * x)
+  in
+  fast_exp_tr x n 1
