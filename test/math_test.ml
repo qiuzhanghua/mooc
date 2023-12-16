@@ -33,6 +33,8 @@ let tests =
            assert_equal 17 (Math.tribonacci 7 1 1 1) ~printer:string_of_int );
          ( "fast_exp" >:: fun _ ->
            assert_equal 512 (Math.fast_exp 2 9) ~printer:string_of_int );
+         ( "catalan" >:: fun _ ->
+           assert_equal 132 (Math.catalan 6) ~printer:string_of_int );
        ]
 
 let _ = run_test_tt_main tests

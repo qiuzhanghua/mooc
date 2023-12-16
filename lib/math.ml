@@ -112,3 +112,14 @@ let fast_exp x n =
     else fast_exp_tr x (n - 1) (acc * x)
   in
   fast_exp_tr x n 1
+
+let catalan n =
+  let c = Array.make (n + 1) 0 in
+  c.(0) <- 1;
+  c.(1) <- 1;
+  for i = 2 to n do
+    for j = 0 to i - 1 do
+      c.(i) <- c.(i) + (c.(j) * c.(i - j - 1))
+    done
+  done;
+  c.(n)
