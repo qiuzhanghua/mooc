@@ -14,6 +14,9 @@ let tests =
            if cmp_float Float.pi (Math.approximate_pi 100000) ~epsilon:1.0e-4
            then ()
            else assert_failure "approximate_pi" );
+         ( "fail_with_pi" >:: fun _ ->
+           assert_raises (Failure "approximate_pi") (fun () ->
+               Math.approximate_pi 100) );
        ]
 
 let _ = run_test_tt_main tests
