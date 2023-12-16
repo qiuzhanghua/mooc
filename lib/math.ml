@@ -65,3 +65,25 @@ let digits n i =
       if m = i then f k' i (a + 1, b + m, c + 1) else f k' i (a, b + m, c + 1)
   in
   f n i (0, 0, 0)
+
+(* let rec hhq r s n =
+   if n < 1 then 0
+   else if n = 1 then 1
+   else
+     let a = n - hhq r s (n - r) in
+     let b = n - hhq r s (n - s) in
+     hhq r s a + hhq r s b *)
+
+let hfm n =
+  let rec hfm' k acc =
+    if k < n + 1 then (
+      let fk1 = fst acc.(k - 1) in
+      let mk1 = snd acc.(k - 1) in
+      acc.(k) <- (k - snd acc.(fk1), k - fst acc.(mk1));
+      hfm' (k + 1) acc)
+  in
+  let arr = Array.make (n + 1) (0, 0) in
+  arr.(0) <- (1, 0);
+  hfm' 1 arr;
+  (* Array.iter (fun (f, m) -> Printf.printf "%d %d\n" f m) arr; *)
+  arr.(n)
