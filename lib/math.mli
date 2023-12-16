@@ -11,3 +11,4 @@ val will_collide_soon : physical_object -> physical_object -> bool
 val manhattan_distance : int -> int -> int -> int -> int
 val euclid : int -> int -> int
 val ackermann : int -> int -> int
+val approximate_pi : int -> float
