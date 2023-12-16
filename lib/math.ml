@@ -49,3 +49,19 @@ let approximate_pi n =
         f (k - 1) approximate *. y /. (y -. 1.)
     in
     f n 2.0
+
+(* Implement a function digits : int -> int -> int*int*int which receives an integer and a digit ,
+   and returns the number of times the digit  appears in ,
+   the sum of the digits of and finally the number of digits of .
+   For example, digits 1073741823 3 would return the tuple (2,36,10).
+*)
+let digits n i =
+  let rec f k i acc =
+    if k = 0 then acc
+    else
+      let k' = k / 10 in
+      let m = k mod 10 in
+      let a, b, c = acc in
+      if m = i then f k' i (a + 1, b + m, c + 1) else f k' i (a, b + m, c + 1)
+  in
+  f n i (0, 0, 0)

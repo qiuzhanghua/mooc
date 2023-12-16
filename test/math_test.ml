@@ -1,6 +1,9 @@
 open OUnit2
 open Mooc
 
+let string_of_triple (a, b, c) =
+  Printf.sprintf "(%d, %d, %d)" a b c
+
 let tests =
   "test suite for math"
   >::: [
@@ -17,6 +20,8 @@ let tests =
          ( "fail_with_pi" >:: fun _ ->
            assert_raises (Failure "approximate_pi") (fun () ->
                Math.approximate_pi 100) );
+         ( "digits" >:: fun _ ->
+           assert_equal (2, 36, 11) (Math.digits 1073741823 3) ~printer:string_of_triple);
        ]
 
 let _ = run_test_tt_main tests

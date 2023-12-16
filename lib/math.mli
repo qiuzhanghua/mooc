@@ -12,3 +12,4 @@ val manhattan_distance : int -> int -> int -> int -> int
 val euclid : int -> int -> int
 val ackermann : int -> int -> int
 val approximate_pi : int -> float
+val digits : int -> int -> int * int * int
