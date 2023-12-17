@@ -1,4 +1,4 @@
-let knuth_shuffle = fun arr ->
+let knuth_shuffle arr =
   let len = Array.length arr in
   for i = 0 to len - 1 do
     let j = Random.int (len - i) + i in

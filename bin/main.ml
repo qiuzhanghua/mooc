@@ -75,5 +75,37 @@ let string_of_list list =
   let string_list = List.map string_of_int list in
   "[" ^ String.concat "; " string_list ^ "]"
 
-
 let () = print_endline (string_of_list (sort4 [ 121; 17; 191; 32; 19; 91 ]))
+
+open Trie
+
+let example =
+  Trie
+    ( None,
+      [
+        ( 'i',
+          Trie (Some 11, [ ('n', Trie (Some 5, [ ('n', Trie (Some 9, [])) ])) ])
+        );
+        ( 't',
+          Trie
+            ( None,
+              [
+                ( 'e',
+                  Trie
+                    ( None,
+                      [
+                        ('n', Trie (Some 12, []));
+                        ('d', Trie (Some 4, []));
+                        ('a', Trie (Some 3, []));
+                      ] ) );
+                ('o', Trie (Some 7, []));
+              ] ) );
+        ('A', Trie (Some 15, []));
+      ] )
+
+let () =
+  match Trie.lookup "ted" example with
+  | Some x ->
+      print_int x;
+      print_endline ""
+  | None -> print_endline "None"
