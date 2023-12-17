@@ -49,3 +49,31 @@ let () =
 let () =
   Printf.printf "manhattan_distance of (0, 0) and (1, 1) is %d\n"
     (Math.manhattan_distance 0 0 1 1)
+
+(* let sort1 a = Array.sort (fun x y -> compare y x) a
+
+   let compare1 x y =
+       if x mod 2 = 0 && y mod 2 = 0 then compare x y
+       else if x mod 2 = 0 then -1
+       else if y mod 2 = 0 then 1
+       else compare x y
+
+     let sort2 l = List.sort compare1 l
+     let sort3 a = Array.sort compare1 a *)
+
+let rec compare2 x y =
+  if x < 10 && y < 10 then compare x y
+  else if y = 0 then 1
+  else
+    let x' = x mod 10 in
+    let y' = y mod 10 in
+    if x' = y' then compare2 (x / 10) (y / 10) else compare x' y'
+
+let sort4 l = List.sort compare2 l
+
+let string_of_list list =
+  let string_list = List.map string_of_int list in
+  "[" ^ String.concat "; " string_list ^ "]"
+
+
+let () = print_endline (string_of_list (sort4 [ 121; 17; 191; 32; 19; 91 ]))
