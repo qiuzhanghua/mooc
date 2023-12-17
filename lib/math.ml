@@ -123,3 +123,16 @@ let catalan n =
     done
   done;
   c.(n)
+
+let rec mccarthy n = if n > 100 then n - 10 else mccarthy (mccarthy (n + 11))
+
+let triangle n =
+  let capacity = max 2 n in
+  let c = Array.make (capacity + 1) 0 in
+  c.(0) <- 1;
+  c.(1) <- 1;
+  c.(2) <- 1;
+  for i = 3 to n do
+    c.(i) <- c.(i - 2) + c.(i - 3)
+  done;
+  c.(n)

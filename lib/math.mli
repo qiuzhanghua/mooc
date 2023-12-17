@@ -20,3 +20,5 @@ val sum3 : int -> int
 val tribonacci : int -> int -> int -> int -> int
 val fast_exp : int -> int -> int
 val catalan : int -> int
+val mccarthy : int -> int
+val triangle : int -> int

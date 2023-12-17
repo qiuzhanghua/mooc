@@ -35,6 +35,12 @@ let tests =
            assert_equal 512 (Math.fast_exp 2 9) ~printer:string_of_int );
          ( "catalan" >:: fun _ ->
            assert_equal 132 (Math.catalan 6) ~printer:string_of_int );
+         ( "mccarthy" >:: fun _ ->
+           assert_equal 190 (Math.mccarthy 200) ~printer:string_of_int );
+         ( "triangle" >:: fun _ ->
+           assert_equal 2 (Math.triangle 3) ~printer:string_of_int );
+         ( "sum" >:: fun _ ->
+           assert_equal 9 (Math.triangle 9) ~printer:string_of_int );
        ]
 
 let _ = run_test_tt_main tests
