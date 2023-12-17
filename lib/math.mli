@@ -22,3 +22,4 @@ val fast_exp : int -> int -> int
 val catalan : int -> int
 val mccarthy : int -> int
 val triangle : int -> int
+val collatz : int -> int list

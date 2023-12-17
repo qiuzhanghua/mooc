@@ -136,3 +136,12 @@ let triangle n =
     c.(i) <- c.(i - 2) + c.(i - 3)
   done;
   c.(n)
+
+let collatz n =
+  let rec collatz_tr n acc =
+    if n = 1 then acc
+    else if n mod 2 = 0 then collatz_tr (n / 2) ((n / 2) :: acc)
+    else collatz_tr ((3 * n) + 1) (((3 * n) + 1) :: acc)
+  in
+  let list = collatz_tr n [] in
+  n :: List.rev list

@@ -4,6 +4,10 @@ open Mooc
 let string_of_triple (a, b, c) = Printf.sprintf "(%d, %d, %d)" a b c
 let string_of_pair (a, b) = Printf.sprintf "(%d, %d)" a b
 
+let string_of_list list =
+  let string_list = List.map string_of_int list in
+  String.concat ", " string_list
+
 let tests =
   "test suite for math"
   >::: [
@@ -41,6 +45,13 @@ let tests =
            assert_equal 2 (Math.triangle 3) ~printer:string_of_int );
          ( "sum" >:: fun _ ->
            assert_equal 9 (Math.triangle 9) ~printer:string_of_int );
+         ( "collatz 1" >:: fun _ ->
+           assert_equal [ 1 ] (Math.collatz 1) ~printer:string_of_list );
+         ( "collatz 2" >:: fun _ ->
+           assert_equal [ 2; 1 ] (Math.collatz 2) ~printer:string_of_list );
+         ( "collatz 6" >:: fun _ ->
+           let e : int list = [ 6; 3; 10; 5; 16; 8; 4; 2; 1 ] in
+           assert_equal e (Math.collatz 6) ~printer:string_of_list );
        ]
 
 let _ = run_test_tt_main tests
