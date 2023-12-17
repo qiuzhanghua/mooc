@@ -1,4 +1,4 @@
 (tests
- (names test_mooc math_test)
+ (names test_mooc math_test lst_test)
  ; (modules test_mooc math_test)
  (libraries ounit2 mooc))

@@ -1,12 +1,6 @@
 open OUnit2
 open Mooc
-
-let string_of_triple (a, b, c) = Printf.sprintf "(%d, %d, %d)" a b c
-let string_of_pair (a, b) = Printf.sprintf "(%d, %d)" a b
-
-let string_of_list list =
-  let string_list = List.map string_of_int list in
-  String.concat ", " string_list
+open Test_utils
 
 let tests =
   "test suite for math"
